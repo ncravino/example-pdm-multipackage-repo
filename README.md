@@ -12,7 +12,7 @@ A simple repo demonstrating how sources can be used to handle multiple packages.
 
 ## How it works
 
-- In the root folder pyproject definition we add a source for the folder packages
+- In the master-package pyproject definition we add a source for the folder packages
 - We also add 2 scripts to build package 1 and 2 and then also add a pre-hook on build and install to call them
 - A local source/index is a wheel filled folder
 
@@ -22,7 +22,6 @@ Notes:
 
 ### Testing
 - install PDM >= 2.22.3
-
 - go into master-package and do `pdm install` which will build the packages and install master-package
 
 ### Updating when package1 or package2 were changed
