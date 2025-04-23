@@ -7,7 +7,7 @@ A simple repo demonstrating how sources can be used to handle multiple packages.
 - master-package - the main package we are bulding depending on package1 and package2
 - package1 - another package we are building depending on package2
 - package2 - another package we are building 
-- packages - the folder for our artifacts
+- local-source - the folder for our artifacts
 
 
 ## How it works
