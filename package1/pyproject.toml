@@ -1,0 +1,28 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "package1"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Nuno Cravino", email = "ncravino@users.noreply.github.com"},
+]
+dependencies = [
+    "pandas>=2.2.3",
+    "package2 >= 0.1.0"
+    
+]
+requires-python = ">=3.12,<3.13"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = true
+
+
+[[tool.pdm.source]]
+name = "packages-source"
+url = "file:///${PROJECT_ROOT}/../local-source/"
+type = "find_links"

@@ -1,0 +1,34 @@
+[project]
+name = "masterpackage"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Nuno Cravino", email = "ncravino@users.noreply.github.com"},
+]
+dependencies = [
+    "package1 >= 0.1.0",
+    "package2 >= 0.1.0",
+]
+
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+#[tool.pdm.dev-dependencies]
+#dev = ["-e package2/"] use only for development and remove before release
+
+[[tool.pdm.source]]
+name = "packages-source"
+url = "file:///${PROJECT_ROOT}/../local-source/"
+type = "find_links"
+
+
+[tool.pdm]
+distribution = true
+
+
+[tool.pdm.scripts]
+
+build_package1 = "sh -c 'pdm build -p ../package1 && cp ../package1/dist/*.whl ../local-source/'"
+build_package2 = "sh -c 'pdm build -p ../package2 && cp ../package2/dist/*.whl ../local-source/'"
+pre_install = {composite = ["build_package1", "build_package2"]}
